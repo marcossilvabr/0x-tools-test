@@ -379,16 +379,16 @@ class Web3Wrapper {
     signTypedDataAsync(address, typedData) {
         return __awaiter(this, void 0, void 0, function* () {
             assert_1.assert.isETHAddressHex('address', address);
-            console.log('doesConformToSchema: ', assert_1.assert.doesConformToSchema('typedData', typedData, json_schemas_1.schemas.eip712TypedDataSchema));
             assert_1.assert.doesConformToSchema('typedData', typedData, json_schemas_1.schemas.eip712TypedDataSchema);
             // Try decreasing versions of `eth_signTypedData` until it works.
             const methodsToTry = ['eth_signTypedData_v4', 'eth_signTypedData_v3', 'eth_signTypedData'];
             let lastErr;
             for (const method of methodsToTry) {
+                console.log('method: ', method);
                 try {
                     return yield this.sendRawPayloadAsync({
                         method,
-                        params: [address, typedData],
+                        params: [address, JSON.stringify(typedData)],
                     });
                 }
                 catch (err) {
