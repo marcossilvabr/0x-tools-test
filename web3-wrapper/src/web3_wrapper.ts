@@ -777,7 +777,10 @@ export class Web3Wrapper {
         } as JSONRPCRequestPayload;
         // tslint:enable:no-object-literal-type-assertion
         const stringifiedData = JSON.stringify(payloadWithDefaults.params[1]);
+        console.log('stringifiedData: ', stringifiedData)
         payloadWithDefaults.params[1] =  stringifiedData;
+        console.log('payloadWithDefaults: ', payloadWithDefaults)
+        console.log('this._provider: ', this._provider)
         const sendAsync = promisify(this._provider.sendAsync.bind(this._provider));
         const response = await sendAsync(payloadWithDefaults); // will throw if it fails
         if (!response) {
