@@ -370,6 +370,7 @@ export class Web3Wrapper {
      */
     public async signTypedDataAsync(address: string, typedData: any): Promise<string> {
         assert.isETHAddressHex('address', address);
+        console.log('doesConformToSchema: ', assert.doesConformToSchema('typedData', typedData, schemas.eip712TypedDataSchema))
         assert.doesConformToSchema('typedData', typedData, schemas.eip712TypedDataSchema);
         // Try decreasing versions of `eth_signTypedData` until it works.
         const methodsToTry = ['eth_signTypedData_v4', 'eth_signTypedData_v3', 'eth_signTypedData'];
