@@ -372,7 +372,7 @@ export class Web3Wrapper {
         assert.isETHAddressHex('address', address);
         assert.doesConformToSchema('typedData', typedData, schemas.eip712TypedDataSchema);
         // Try decreasing versions of `eth_signTypedData` until it works.
-        const methodsToTry = ['eth_signTypedData_v4', 'eth_signTypedData_v3', 'eth_signTypedData'];
+        const methodsToTry = ['eth_signTypedData'];
         let lastErr: Error | undefined;
         for (const method of methodsToTry) {
             try {
