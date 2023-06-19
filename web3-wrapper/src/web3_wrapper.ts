@@ -372,7 +372,7 @@ export class Web3Wrapper {
         assert.isETHAddressHex('address', address);
         assert.doesConformToSchema('typedData', typedData, schemas.eip712TypedDataSchema);
         // Try decreasing versions of `eth_signTypedData` until it works.
-        const methodsToTry = ['eth_signTypedData'];
+        const methodsToTry = ['eth_signTypedData_v4', 'eth_signTypedData_v3', 'eth_signTypedData'];
         let lastErr: Error | undefined;
         for (const method of methodsToTry) {
             try {
@@ -776,9 +776,9 @@ export class Web3Wrapper {
             ...payload,
         } as JSONRPCRequestPayload;
         // tslint:enable:no-object-literal-type-assertion
-        const stringifiedData = JSON.stringify(payloadWithDefaults.params[1]);
+        // const stringifiedData = JSON.stringify(payloadWithDefaults.params[1]);
         console.log('stringifiedData: ', stringifiedData)
-        payloadWithDefaults.params[1] =  stringifiedData;
+        // payloadWithDefaults.params[1] =  stringifiedData;
         console.log('payloadWithDefaults: ', payloadWithDefaults)
         console.log('this._provider: ', this._provider)
         const sendAsync = promisify(this._provider.sendAsync.bind(this._provider));
