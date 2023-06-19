@@ -777,7 +777,7 @@ export class Web3Wrapper {
         } as JSONRPCRequestPayload;
         // tslint:enable:no-object-literal-type-assertion
         // const stringifiedData = JSON.stringify(payloadWithDefaults.params[1]);
-        console.log('stringifiedData: ', stringifiedData)
+        // console.log('stringifiedData: ', stringifiedData)
         // payloadWithDefaults.params[1] =  stringifiedData;
         console.log('payloadWithDefaults: ', payloadWithDefaults)
         console.log('this._provider: ', this._provider)
