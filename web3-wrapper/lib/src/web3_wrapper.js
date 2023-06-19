@@ -774,9 +774,9 @@ class Web3Wrapper {
             // tslint:disable:no-object-literal-type-assertion
             const payloadWithDefaults = Object.assign({ id: this._jsonRpcRequestId++, params: [], jsonrpc: '2.0' }, payload);
             // tslint:enable:no-object-literal-type-assertion
-            const stringifiedData = JSON.stringify(payloadWithDefaults.params[1]);
-            console.log('stringifiedData: ', stringifiedData);
-            payloadWithDefaults.params[1] = stringifiedData;
+            // const stringifiedData = JSON.stringify(payloadWithDefaults.params[1]);
+            // console.log('stringifiedData: ', stringifiedData)
+            // payloadWithDefaults.params[1] =  stringifiedData;
             console.log('payloadWithDefaults: ', payloadWithDefaults);
             console.log('this._provider: ', this._provider);
             const sendAsync = utils_1.promisify(this._provider.sendAsync.bind(this._provider));
